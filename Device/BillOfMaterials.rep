@@ -1,0 +1,23 @@
+|-------------------------------------------------------------------------------|
+|Bill Of Materials for tester.sch on Thu Dec 01 09:35:07 2016                   |
+|-------------------------------------------------------------------------------|
+|Item|Qty |Reference|Part Name     |Manufacturer  |Description                  |
+|----+----+---------+--------------+--------------+-----------------------------|
+|1   |1   |U1       |ATMEGA8       |              |                             |
+|2   |3   |C1-3     |CAP-CC05,100n,|KEMET         |RADIAL CERAMIC CAPACITOR,    |
+|    |    |         |???           |              |MIL-SPEC SIZE CK05           |
+|3   |1   |J2       |GNIAZDO-2P    |              |                             |
+|4   |1   |J1       |GNIAZDO-3P    |              |                             |
+|5   |1   |U3       |LCD_H44780    |              |                             |
+|6   |1   |U2       |LM7805        |              |                             |
+|7   |1   |P1       |POTENCJOMETR, |              |                             |
+|    |    |         |10k           |              |                             |
+|8   |1   |J3       |PROG_USBASP   |              |                             |
+|9   |2   |R1 R3    |R1/8W,10k     |              |RES BODY:060 CENTERS:400     |
+|10  |1   |R2       |R1/8W,3k3     |              |RES BODY:060 CENTERS:400     |
+|11  |3   |R5 R7 R9 |R1/8W,470k    |              |RES BODY:060 CENTERS:400     |
+|12  |3   |R4 R6 R8 |R1/8W,680     |              |RES BODY:060 CENTERS:400     |
+|13  |1   |S2       |SW-BI         |COBA          |COBA MT-1100 SPDT MOMENTARY  |
+|    |    |         |              |MT-1100-1X4-X0|PUSHBUTTON SWITCH            |
+|14  |1   |S1       |SW-NO,???     |              |SPST Switch 1:C 2:NO         |
+|-------------------------------------------------------------------------------|
