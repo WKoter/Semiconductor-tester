@@ -67,14 +67,10 @@
 
 #define BUFFER_SIZE 	8
 #define NO_ADC 			3
-#define VREF_1024		5 //5000[mV]/1024, leszpym przybli¿eniem jest 5 ni¿ 4
-#define VREF			5000 //5000[mV]
 #define ERROR_RATE		30 // (20 / 1024) * 5V ~= 0,1V , !!!ZMIENIONE z 20 na 30, TESTOWANIE !!!
 #define MAX_ADC_RESULT	1024
 #define MAX_ADC_RESULT_Z	880
 #define PRESKALER		256 //preskaler u¿yty w Timer1
-
-#define GATE_HIGH_VOLTAGE	970
 
 #define LOW_BATTERY			7600	//napiêcie baterii w [mV], poni¿ej którego uznawana jest za s³ab¹
 #define BATTERY_DISCHARGED	7150	//napiêcie baterii w [mV], poni¿ej którego bateria jest do wymiany
@@ -144,40 +140,38 @@ typedef struct
 typedef struct
 {
 	elementName name;
-	uint8_t anode;
-	uint8_t cathode;
+	uint8_t pin1;
+	uint8_t pin2;
 	uint8_t NC;
 } S_RESISTOR;
 
 
-
-
 void initializeTimer1();
 void initializeADC();
-void resistanceMeas(uint8_t input);
+
+void setADCchannel(uint8_t ADCchannel);
 uint16_t averagingSamples(uint16_t* array, uint8_t size);
-uint8_t checkDiode();
-void displayBatteryVoltage();
 uint16_t MeasAndAverage(uint8_t ADCchannel);
 void MeasAndAverageAllTestChannels();
-void setADCchannel(uint8_t ADCchannel);
-void copyElementData(void* element1, void* element2);
-void displayResult(void* element);
-uint8_t checkCapacitor();
-uint8_t checkBJT(elementName type);
-void setPortsBJT(enum BJTtype type, uint8_t basePosition, uint8_t replaceCwithE, uint8_t* C, uint8_t* E);
+uint16_t convertADCtoVoltage(uint16_t ADCValue);
 
+void dispalyMeasurements();
+void displayBatteryVoltage();
+void displayResult(void* element);
+
+void copyElementData(void* element1, void* element2);
+
+void turnOffTestPorts();
 void assignPins(uint8_t config, void* element);
 void setPins(elementName name, uint8_t triggeredPin, uint8_t HPotentialPin, uint8_t LPotentialPin, uint8_t triggeredState, uint8_t HPotentialState, uint8_t LPotentialState);
+uint8_t dischargeCap(uint8_t config);
+
+uint8_t checkCapacitor();
+uint8_t checkDiode();
+uint8_t checkBJT(elementName type);
 uint8_t checkN_MOSFET();
 uint8_t checkP_MOSFET();
 uint8_t checkThyristor();
-
-uint8_t checkResistor(uint8_t startPin, uint8_t resistor);
-void turnOffTestPorts();
-uint8_t dischargeCap(uint8_t config);
-
-void dispalyMeasurements();
-uint16_t convertADCtoVoltage(uint16_t ADCValue);
+uint8_t checkResistor();
 
 #endif /* MAIN_H_ */
